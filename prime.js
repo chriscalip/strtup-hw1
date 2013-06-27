@@ -15,26 +15,30 @@ function array_fill (start_index, num, mixed_val) {
 }
 
 function eratosthenes_sieve(sieve, max_numbers) {
-  i = 2;
-  primes = array();
+  var i = 2;
+  var j, size = 0;
+  primes = new Array();
   while (1) {
     if (sieve[i] == 0) {
-      primes[] = i;
-      if ( count(primes) >= max_numbers ) {
+      primes.push(i);
+      size = primes.filter(function(value) { return value !== undefined }).length;
+      if ( size >= max_numbers ) {
         return primes;
       }      
       j = i;
-      while ($j <= $n) {
+      while (j <= max_numbers) {
         sieve[j] = 1;
         j += i;
       }
     }
-    si++;
+    i++;
   }
-  return $primes;
+  return primes;
 }
  
 var max_numbers = 100;
 var sieve = array_fill(0, max_numbers, 0);
 // 2, 3, 5, 7, ..., 97
 var primes = eratosthenes_sieve(sieve, max_numbers);
+
+console.log(primes);
